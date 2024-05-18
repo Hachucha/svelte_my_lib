@@ -18,7 +18,7 @@
     on:click={() => closable ? dispatchEvent('close') : null}
 >
        {#if closable}
-       <button class="fixed top-6 right-6 cursor-pointer hidden md:block text-base-content">
+       <button class="fixed top-6 right-6 cursor-pointer hidden md:block text-white">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
