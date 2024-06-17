@@ -3,14 +3,14 @@
     export let onInput = null;
 
     function validate() {
-        field.valid = true;
+        field.invalid = true;
         if (field.required && !field.value) {
-            field.valid = false;
+            field.invalid = false;
         }
-        if (field.validators) {
-            for (let validator of field.validators) {
+        if (field.invalidators) {
+            for (let validator of field.invalidators) {
                 if (!validator(field.value)) {
-                    field.valid = false;
+                    field.invalid = false;
                 }
             }
         }
@@ -36,7 +36,7 @@
     <div class="">
         {#if field.title}
             <div class="label">
-                <span class="label-text {field.valid ? '' : 'text-error'}"
+                <span class="label-text {field.invalid ? '' : 'text-error'}"
                     >{field.title}</span
                 >
             </div>
@@ -50,7 +50,7 @@
                 placeholder={field.placeholder}
                 class="input input-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.valid ? '' : 'input-error'}"
+                    : 'max-w-xs'} {field.invalid ? '' : 'input-error'}"
                 value={field.value}
                 bind:this={field.element}
             />
@@ -64,7 +64,7 @@
                 placeholder={field.placeholder}
                 class="input input-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.valid ? '' : 'input-error'}"
+                    : 'max-w-xs'} {field.invalid ? '' : 'input-error'}"
                 value={field.value}
                 bind:this={field.element}
             />
@@ -76,7 +76,7 @@
                 }}
                 class="select select-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.valid ? '' : 'select-error'}"
+                    : 'max-w-xs'} {field.invalid ? '' : 'select-error'}"
                 value={field.value}
                 bind:this={field.element}
             >
@@ -92,7 +92,7 @@
                 }}
                 class="select select-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.valid ? '' : 'select-error'}"
+                    : 'max-w-xs'} {field.invalid ? '' : 'select-error'}"
                 value={field.value}
                 bind:this={field.element}
             >
