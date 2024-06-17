@@ -36,7 +36,7 @@
     <div class="">
         {#if field.title}
             <div class="label">
-                <span class="label-text {field.invalid ? '' : 'text-error'}"
+                <span class="label-text {!field.invalid ? '' : 'text-error'}"
                     >{field.title}</span
                 >
             </div>
@@ -50,7 +50,7 @@
                 placeholder={field.placeholder}
                 class="input input-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.invalid ? '' : 'input-error'}"
+                    : 'max-w-xs'} {!field.invalid ? '' : 'input-error'}"
                 value={field.value}
                 bind:this={field.element}
             />
@@ -64,7 +64,7 @@
                 placeholder={field.placeholder}
                 class="input input-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.invalid ? '' : 'input-error'}"
+                    : 'max-w-xs'} {!field.invalid ? '' : 'input-error'}"
                 value={field.value}
                 bind:this={field.element}
             />
@@ -76,7 +76,7 @@
                 }}
                 class="select select-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.invalid ? '' : 'select-error'}"
+                    : 'max-w-xs'} {!field.invalid ? '' : 'select-error'}"
                 value={field.value}
                 bind:this={field.element}
             >
@@ -92,7 +92,7 @@
                 }}
                 class="select select-bordered w-full {field.wide
                     ? ''
-                    : 'max-w-xs'} {field.invalid ? '' : 'select-error'}"
+                    : 'max-w-xs'} {!field.invalid ? '' : 'select-error'}"
                 value={field.value}
                 bind:this={field.element}
             >
