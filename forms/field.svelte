@@ -3,14 +3,14 @@
     export let onInput = null;
 
     function validate() {
-        field.invalid = true;
+        field.invalid = false;
         if (field.required && !field.value) {
-            field.invalid = false;
+            field.invalid = true;
         }
         if (field.invalidators) {
             for (let validator of field.invalidators) {
                 if (!validator(field.value)) {
-                    field.invalid = false;
+                    field.invalid = true;
                 }
             }
         }
